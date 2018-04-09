@@ -67,7 +67,7 @@ class DragTransitionLayout: SwipeTransitionLayout {
     }
     
     func layout(view: UIView, atIndex index: Int, with context: ActionsViewLayoutContext) {
-        view.frame.origin.x = (CGFloat(index) * context.minimumButtonWidth) * context.orientation.scale
+        view.frame.origin.x = (CGFloat(index) * context.minimumButtonWidth) * context.orientation.scale - 3
     }
     
     func visibleWidthsForViews(with context: ActionsViewLayoutContext) -> [CGFloat] {
