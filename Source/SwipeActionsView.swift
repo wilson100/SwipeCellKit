@@ -101,7 +101,8 @@ class SwipeActionsView: UIView {
         feedbackGenerator.prepare()
         
         super.init(frame: .zero)
-        
+
+        layer.cornerRadius = 6
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = options.backgroundColor ?? #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
@@ -148,6 +149,13 @@ class SwipeActionsView: UIView {
             button.maximumImageHeight = maximumImageHeight
             button.verticalAlignment = options.buttonVerticalAlignment
             button.shouldHighlight = action.hasBackgroundColor
+
+            if index != 0 {
+                let lineView = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: button.frame.height))
+                lineView.autoresizingMask = [.flexibleHeight]
+                lineView.backgroundColor = .white
+                button.addSubview(lineView)
+            }
         }
         
         return buttons
